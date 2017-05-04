@@ -1,0 +1,34 @@
+{
+  "name": "ns8-api",
+  "description": "NS8 Administration API",
+  "version": "1.2.0",
+  "author": {
+    "name": "NS8.com"
+  },
+  "main": "lib/index.js",
+  "contributors": [
+    {
+      "name": "Phil Vizzaccaro",
+      "email": "phil@ns8.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ns8inc/ns8-api.git"
+  },
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "types": "./admin-api.d.ts",
+  "dependencies": {
+    "@types/node": "^6.0.68",
+    "@types/async": "^2.0.40",
+    "async": "^2.3.0",
+    "@types/lru-cache": "^2.5.32",
+    "lru-cache": "^4.0.2",
+    "ns8-utils": "ns8inc/ns8-utils#1.x",
+    "@types/restify": "^2.0.42",
+    "restify": "^4.3.0"
+  },
+  "license" : "MIT"
+}
