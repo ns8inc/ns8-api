@@ -2,6 +2,7 @@ declare module 'ns8-api' {
     import restify = require('restify');
 
     export let client;
+    export function sessionClient(req): restify.Client;
     export let sessionStore;
 
     export module errors {

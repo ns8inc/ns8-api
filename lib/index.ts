@@ -44,6 +44,28 @@ export function log(a1, a2, a3, a4, a5) {
 }
 
 /**
+ * For requests from a web session, return a restify JSON client with the authorization of the session added.
+ * @param req
+ * @returns {Client}
+ */
+export function sessionClient(req): restify.Client {
+    let clientParams: any = {
+        url: utils.config.settings()['apiUrl'],
+        version: '*'
+    };
+
+    //  For authenticated sessions, add the access token to the header.  This uses the bearer token method as described in https://tools.ietf.org/html/rfc6750.
+    //  rfc6750 does not require OAuth2 for this method, but this allows for future OAuth2 implementations to use the same strategy.
+    if (req.session && req.session.accessToken) {
+        clientParams.headers = {
+            Authorization: 'Bearer ' + req.session.accessToken
+        };
+    }
+
+    return restify.createJsonClient(clientParams);
+}
+
+/**
  * Authorize an access token and return user data.
  * @param params
  * @param callback
