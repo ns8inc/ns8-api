@@ -1,6 +1,12 @@
-import client = require('../client');
+import utils = require("ns8-utils");
 import restify = require('restify');
 let util = require('util');
+
+//  use a REST client
+let client: restify.Client = restify.createJsonClient({
+    url: utils.config.settings()['apiUrl'],
+    version: '*'
+});
 
 /**
  * Return the `APIStore` extending `express`'s session Store.
@@ -55,10 +61,10 @@ module.exports = function(connect) {
 
         try {
             let lastAccess = new Date();
-            let expires = lastAccess.setDate(lastAccess.getDate() + 1);
+            let expires: Date = new Date(lastAccess.setDate(lastAccess.getDate() + 1));
 
             if (typeof data.cookie != 'undefined')
-                expires = data.cookie._expires;
+                expires = new Date(data.cookie._expires);
 
             if (typeof data.lastAccess != 'undefined')
                 lastAccess = new Date(data.lastAccess);
