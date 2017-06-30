@@ -27,7 +27,7 @@ export class Application {
     };
 }
 
-export var items: Array<Application>;
+export let items: Array<Application>;
 
 export function getAll(callback: (err?: errors.APIError, result?: Array<Application>) => void) {
 

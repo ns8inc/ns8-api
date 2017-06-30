@@ -134,6 +134,7 @@ declare module 'ns8-api' {
 
         export function get(params:any, callback:(err?:errors.APIError, result?:any) => void);
         export function create(params:any, callback:(err?:errors.APIError, result?:any) => void);
+        export function setPartnerId(req: any, partnerId: number, callback: (err?: errors.APIError) => void);
     }
 
     export module projects {

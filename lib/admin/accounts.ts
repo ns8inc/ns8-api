@@ -1,6 +1,7 @@
 import client = require('../client');
 import errors = require('../errors');
 import restify = require('restify');
+import utils = require("ns8-utils");
 
 export enum AccountStatus {
     /**
@@ -54,6 +55,38 @@ export function create(params: any, callback: (err?: errors.APIError, result?: a
             else
                 callback(null, result.data.account);        //  finally, return the payload
         });
+    } catch(err) {
+        callback(err);
+    }
+}
+
+/**
+ * Set the partner id on for the authenticated user.
+ * @param req
+ * @param partnerId
+ * @param callback
+ */
+export function setPartnerId(req: any, partnerId: number, callback: (err?: errors.APIError) => void) {
+
+    try {
+
+        if (!utils.isNumeric(partnerId)) {
+            callback(new errors.BadRequestError('The partner id must be a number.'));
+        } else if (!req || !req.session) {
+            callback(new errors.UnauthorizedError());
+        } else {
+
+            let params = {
+                accountId: req.session.accountId,
+                update: {
+                    partnerId: +partnerId
+                }
+            };
+
+            client.put('/v1/accounts', params, function(err, req: restify.Request, res: restify.Response, result: any) {
+                callback(err);
+            });
+        }
     } catch(err) {
         callback(err);
     }
