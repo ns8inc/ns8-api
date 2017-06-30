@@ -77,7 +77,7 @@ export function setPartnerId(req: any, partnerId: number, callback: (err?: error
         } else {
 
             let params = {
-                accountId: req.session.accountId,
+                accessToken: req.session.accessToken,
                 update: {
                     partnerId: +partnerId
                 }
