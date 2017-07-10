@@ -199,6 +199,10 @@ export enum AttributeTypes {
 }
 
 export function getAttributes(entityName: string, attributeType: AttributeTypes, isLog: boolean): Array<Attribute> {
+
+    if (!entities || !entities[entityName])
+        return null;
+
     let attribs = [], appAttribs = entities[entityName].attributes;
 
     for (let a = 0; a < appAttribs.length; a++) {
@@ -236,6 +240,9 @@ export function addAttributeView(options, entityName: string, attributeType: Att
 
 export function getAttributeOptions(entityName: string, attributeType: AttributeTypes, customAttribs: any, isLog?: boolean) {
     let options = [], attribs = getAttributes(entityName, attributeType, isLog);
+
+    if (!attribs)
+        return null;
 
     //  add custom attributes
     if (customAttribs) {
@@ -282,6 +289,9 @@ export function addFilterView(filterOptions, entityName: string, customAttribs: 
 
 export function getFilterOptions(entityName: string, customAttribs: any, isLog: boolean): Array<FilterOptions> {
     let attrib, filterOptions = [];
+
+    if (!entities || !entities[entityName])
+        return null;
 
     //  add custom attributes
     if (customAttribs) {
