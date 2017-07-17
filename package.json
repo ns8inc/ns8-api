@@ -1,7 +1,7 @@
 {
   "name": "ns8-api",
   "description": "NS8 Administration API",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": {
     "name": "NS8.com"
   },
@@ -29,7 +29,7 @@
     "ns8-utils": "ns8inc/ns8-utils#1.x",
     "@types/restify": "^2.0.42",
     "restify": "^4.3.0",
-    "typescript": "^2.3.2"
+    "typescript": "^2.4.1"
   },
   "license" : "MIT",
   "scripts": {

@@ -31,6 +31,7 @@ export let REST = require('./REST');
 
 export class Authorization {
     accessToken: string;
+    adminMode: boolean;
     user: _users.User;
     expiration: Date;
     account: _accounts.Account;
@@ -95,6 +96,7 @@ export function authorize(params: any, callback: (err?: _errors.APIError, result
  */
 export function setSessionAuth(req, auth: Authorization) {
     req.session.accessToken = auth.accessToken;
+    req.session.adminMode = auth.adminMode;
     req.session.user = auth.user;
     req.session.expiration = auth.expiration;
     req.session.account = auth.account;
@@ -109,6 +111,7 @@ export function setSessionAuth(req, auth: Authorization) {
  */
 export function clearSessionAuth(req) {
     delete req.session.accessToken;
+    delete req.session.adminMode;
     delete req.session.user;
     delete req.session.expiration;
     delete req.session.account;

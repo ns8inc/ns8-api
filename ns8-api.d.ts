@@ -153,6 +153,7 @@ declare module 'ns8-api' {
 
     export class Authorization {
         accessToken:string;
+        adminMode: boolean;
         user:users.User;
         expiration:Date;
         account:accounts.Account;
@@ -185,11 +186,9 @@ declare module 'ns8-api' {
         domain: string;
         appName: string;
         appId: number;
-
         nodeHost: string;
         nodePort: number;
         nodeUrl: string;
-
         apiUrl: string;
         apiVersion: string;
 
