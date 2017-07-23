@@ -1,8 +1,5 @@
 import utils = require('ns8-utils');
-import restify = require('restify');
 import client = require('../client');
-import accounts = require('./accounts');
-import projects = require('./projects');
 import errors = require('../errors');
 
 module.exports = function(name: string, password: string, appId: number, callback: Function) {

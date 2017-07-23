@@ -1,5 +1,4 @@
 import utils = require("ns8-utils");
-
 import restify = require('restify');
 import _client = require('./client');
 import _sessionStore = require('./admin/sessionStore');
@@ -40,6 +39,14 @@ export class Authorization {
     currentProjectId: number;
 }
 
+/**
+ * Log an error to the api host.
+ * @param a1
+ * @param a2
+ * @param a3
+ * @param a4
+ * @param a5
+ */
 export function log(a1, a2, a3, a4, a5) {
     logs.log(a1, a2, a3, a4, a5);
 }

@@ -1,5 +1,4 @@
 import utils = require("ns8-utils");
-import async = require("async");
 import REST = require("./REST");
 import errors = require("./errors");
 import index = require("./index");

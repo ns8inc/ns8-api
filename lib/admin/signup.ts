@@ -1,8 +1,5 @@
 import utils = require('ns8-utils');
 import users = require('./users');
-import accounts = require('./accounts');
-import errors = require('../errors');
-import api = require('../index');
 
 let settings = utils.config.settings();
 let login = require('./login');
