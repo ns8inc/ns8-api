@@ -15,21 +15,42 @@ export enum Levels {
  * @param items
  */
 export function createEntry(level: Levels, items) {
-    let params: any = {
-        level: level,
-        data: items
-    };
+    try {
 
-    if (utils.isNumeric(utils.config.settings()['appId']))
-        params.appId = utils.config.settings()['appId'];
+        // normalize objects
+        for (let i = 0; i < items.length; i++) {
+            let item = items[i];
 
-    client.post('/v1/ops/logs', params, function(err, req, res) {
+            //  request object
+            if (typeof item === 'object' && item.constructor && item.constructor.name === 'IncomingMessage') {
 
-        if (err) {
-            console.log('logger after client.post', err);
-            console.dir(params);
+                items[i] = {
+                    user: item.session && item.session.user ? item.session.user.name : undefined,
+                    url: item.originalUrl,
+                    ip: utils.ip.remoteAddress(item),
+                    userAgent: item.headers ? item.headers['user-agent'] : undefined
+                };
+            }
         }
-    });
+
+        let params: any = {
+            level: level,
+            data: items
+        };
+
+        if (utils.isNumeric(utils.config.settings()['appId']))
+            params.appId = utils.config.settings()['appId'];
+
+        client.post('/v1/ops/logs', params, function(err, req, res) {
+
+            if (err) {
+                console.log('logger after client.post', err);
+                console.dir(params);
+            }
+        });
+    } catch(err) {
+        console.dir(err);
+    }
 }
 
 /**
