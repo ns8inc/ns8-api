@@ -23,6 +23,7 @@ export let projects = _projects;
 export let reporting = _reporting;
 
 export let logs = require('./admin/logs');
+export let logger = require('./admin/logger');
 export let login = require('./admin/login');
 export let signup = require('./admin/signup');
 
