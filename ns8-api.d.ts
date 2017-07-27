@@ -166,7 +166,6 @@ declare module 'ns8-api' {
         export let client:restify.Client;
         export class ResponseResult {
             constructor(code?:number, data?:Object, message?:string);
-
             code:number;
             message:string;
             data:Object;
@@ -204,6 +203,14 @@ declare module 'ns8-api' {
 
     export module logs {
         export function log(a1?:any, a2?:any, a3?:any, a4?:any, a5?:any);
+    }
+
+    export module logger {
+        export function fatal(...items);
+        export function error(...items);
+        export function warn(...items);
+        export function info(...items);
+        export function trace(...items);
     }
 
     export function authenticate(req, res, next);
