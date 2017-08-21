@@ -21,6 +21,15 @@ export function createEntry(level: Levels, items) {
         for (let i = 0; i < items.length; i++) {
             let item = items[i];
 
+            //  Error object - have to manually create it or it does not save
+            if (typeof item === 'object' && item instanceof Error) {
+                items[i] = {
+                    error: item.message,
+                    name: item.name,
+                    stack: item.stack
+                }
+            }
+
             //  request object
             if (typeof item === 'object' && item.constructor && item.constructor.name === 'IncomingMessage') {
 
