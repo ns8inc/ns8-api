@@ -5,7 +5,8 @@ import restify = require("restify");
 
 let client: restify.Client = restify.createJsonClient({
     url: utils.config.settings()['apiUrl'],
-    version: '*'
+    version: '*',
+    requestTimeout: 60000 * 5
 });
 
 export = client;
