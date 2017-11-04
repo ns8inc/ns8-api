@@ -72,7 +72,8 @@ module.exports = function(connect) {
             let update = {
                 data: data,
                 lastAccess: lastAccess,
-                expires: expires
+                expires: expires,
+                appId: utils.config.settings().appId
             };
 
             client.put('/v1/sessions/' + sid, update, function (err, req, res) {
