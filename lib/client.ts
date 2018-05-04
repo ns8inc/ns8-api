@@ -6,9 +6,11 @@ import restify = require("restify");
 let client: restify.Client = restify.createJsonClient({
     url: utils.config.settings()['apiUrl'],
     version: '*',
-    connectTimeout: 10000,
+    connectTimeout: 5000,
     requestTimeout: 60000 * 5,
-    retry: 3
+    retry: {
+        'retries': 5
+    },
 });
 
 export = client;
