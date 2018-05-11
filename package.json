@@ -1,7 +1,7 @@
 {
   "name": "ns8-api",
   "description": "NS8 Administration API",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "author": {
     "name": "NS8.com"
   },
