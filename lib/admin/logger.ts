@@ -37,7 +37,7 @@ export function createEntry(level: Levels, items) {
                     user: item.session && item.session.user ? item.session.user.name : undefined,
                     url: item.originalUrl,
                     ip: utils.ip.remoteAddress(item),
-                    userAgent: item.headers ? item.headers['user-agent'] : undefined
+                    headers: item.headers
                 };
             }
         }
