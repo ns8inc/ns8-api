@@ -21,13 +21,12 @@
   },
   "types": "./ns8-api.d.ts",
   "dependencies": {
-    "@types/node": "^10.14.5",
-    "@types/async": "^2.4.1",
-    "async": "^2.6.2",
+    "@types/node": "^10.14.19",
+    "@types/async": "^2.4.2",
+    "async": "^2.6.3",
     "ns8-utils": "ns8inc/ns8-utils#1.x",
-    "@types/restify": "^4.3.6",
     "restify": "^4.3.4",
-    "typescript": "^3.4.4"
+    "typescript": "^3.6.3"
   },
   "license": "MIT",
   "scripts": {

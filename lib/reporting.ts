@@ -429,7 +429,7 @@ export function getSegments(req, useCache: boolean, appId: number, callback: (er
 
             let endpoint = apps[settings.appId].reporting.apiEndpoint;
 
-            REST.client.get(endpoint + 'segments?accessToken=' + req.session.accessToken, function(err: errors.APIError, apiRequest, apiResponse, result: any) {
+            REST.client.get(endpoint + '/segments?accessToken=' + req.session.accessToken, function(err: errors.APIError, apiRequest, apiResponse, result: any) {
 
                 if (!err) {
                     req.session['segments'] = result.data;
