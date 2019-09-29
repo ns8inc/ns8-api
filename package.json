@@ -21,8 +21,8 @@
   },
   "types": "./ns8-api.d.ts",
   "dependencies": {
-    "@types/node": "^10.14.19",
     "@types/async": "^2.4.2",
+    "@types/node": "^10.14.19",
     "async": "^2.6.3",
     "ns8-utils": "ns8inc/ns8-utils#1.x",
     "restify": "^4.3.4",
